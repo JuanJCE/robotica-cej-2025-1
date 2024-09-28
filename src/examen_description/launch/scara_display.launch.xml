@@ -1,0 +1,20 @@
+<launch>
+    <!-- Actualiza el nombre del paquete -->
+    <let name="urdf_path" 
+         value="$(find-pkg-share examen_description)/urdf/scara_urdf.xacro" />
+    <let name="rviz_config_path"
+         value="$(find-pkg-share examen_description)/rviz/scara_rviz.rviz" />
+
+    <!-- Nodo para publicar el estado del robot -->
+    <node pkg="robot_state_publisher" exec="robot_state_publisher">
+        <param name="robot_description"
+               value="$(command 'xacro $(var urdf_path)')" />
+    </node>
+
+    <!-- Nodo para la GUI de las articulaciones -->
+    <node pkg="joint_state_publisher_gui" exec="joint_state_publisher_gui" />
+
+    <!-- Nodo para visualizar en RViz -->
+    <node pkg="rviz2" exec="rviz2" output="screen" 
+          args="-d $(var rviz_config_path)" />
+</launch>

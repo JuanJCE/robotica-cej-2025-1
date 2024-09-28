@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>practica1_description</name>
+  <version>0.0.0</version>
+  <description>URDF and RViz configuration for basic robot visualization.</description>
+  <maintainer email="robousr@todo.todo">robousr</maintainer>
+  <license>TODO: License declaration</license>
+
+  <!-- Build tool -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Dependencies for publishing and visualizing robot states -->
+  <depend>robot_state_publisher</depend>
+  <depend>joint_state_publisher_gui</depend>
+  <depend>rviz2</depend>
+  <depend>xacro</depend> <!-- For parsing the URDF -->
+
+  <!-- Optional testing dependencies -->
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+
